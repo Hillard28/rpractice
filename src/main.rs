@@ -99,6 +99,7 @@ fn main() {
 
     // Structs
     {
+        // Instantiating Structs
         let u1 = User {
             username: String::from("Hillard28"),
             email: String::from("hillard28@example.com"),
@@ -119,6 +120,7 @@ fn main() {
             u2.username, u2.email, u2.sign_in_count, u2.active
         );
 
+        // Methods
         let o = Point(1, 2, 3);
         println!("Point: ({}, {}, {})", o.0, o.1, o.2);
 
