@@ -1,3 +1,23 @@
+// Struct containing user information
+struct User {
+    username: String,
+    email: String,
+    sign_in_count: u64,
+    active: bool,
+}
+
+// Struct containing coordinates in a three-dimensional space
+struct Point(i32, i32, i32);
+
+// Method implementation for the Point struct
+impl Point {
+    // Compute the length of the vector as the distance from the origin
+    fn length(&self) -> f64 {
+        let ss = (self.0.pow(2) + self.1.pow(2) + self.2.pow(2)) as f64;
+        ss.sqrt()
+    }
+}
+
 fn main() {
     // Variables and Mutability
     {
@@ -76,6 +96,35 @@ fn main() {
         println!("The length of \"{}\" is: {}", s4, l4);
         println!("The length of \"{}\" is: {}", s4f, l4f);
     }
+
+    // Structs
+    {
+        let u1 = User {
+            username: String::from("Hillard28"),
+            email: String::from("hillard28@example.com"),
+            sign_in_count: 1,
+            active: true,
+        };
+        println!(
+            "Username: {}\nEmail: {}\nSign-in Count: {}\nActive: {}",
+            u1.username, u1.email, u1.sign_in_count, u1.active
+        );
+
+        let u2 = build_user(
+            String::from("Hillard28"),
+            String::from("hillard28@example.com"),
+        );
+        println!(
+            "Username: {}\nEmail: {}\nSign-in Count: {}\nActive: {}",
+            u2.username, u2.email, u2.sign_in_count, u2.active
+        );
+
+        let o = Point(1, 2, 3);
+        println!("Point: ({}, {}, {})", o.0, o.1, o.2);
+
+        let ol = o.length();
+        println!("Vector length: {}", ol);
+    }
 }
 
 // Basic function with a parameter and return value
@@ -106,3 +155,12 @@ fn first_word(s: &String) -> &str {
     &s[..]
 }
 
+// Builds an initial user from input username and email
+fn build_user(username: String, email: String) -> User {
+    User {
+        username: username,
+        email: email,
+        sign_in_count: 1,
+        active: true,
+    }
+}
