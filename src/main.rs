@@ -83,14 +83,17 @@ fn square(x: i64) -> i64 {
     x * x
 }
 
+// Takes ownership of a string and prints it
 fn print_str(s: String) {
     println!("{}", s);
 }
 
+// Takes a reference to a string slice and returns its length
 fn calculate_length(s: &str) -> usize {
     s.len()
 }
 
+// Takes a reference to a string and returns the first word as a string slice
 fn first_word(s: &String) -> &str {
     let bytes = s.as_bytes();
 
